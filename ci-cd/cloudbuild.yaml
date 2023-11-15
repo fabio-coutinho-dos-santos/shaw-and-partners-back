@@ -87,16 +87,18 @@ steps:
       "--service-account", "$_SERVICE_ACCOUNT_",
       "--allow-unauthenticated",
       "--labels", "module=exports",
-      "--image", "$_ARTIFACT_HOST_/$_IMAGES_PROJECT_ID_/$_ARTIFACT_REPO_/$_ARTIFACT_IMAGE_:$SHORT_SHA",
+      "--image", "$_ARTIFACT_HOST_/$PROJECT_ID/$_ARTIFACT_REPO_/$_IMAGE_NAME_:$SHORT_SHA",
       "--concurrency", "20",
       "--min-instances", "0",
       "--max-instances", "10",
       "--timeout", "3600s",
       "--cpu", "1",
       "--memory", "128Mi",
-      "--revision-suffix","sha-$SHORT_SHA",
-      "--port", "$_PORT_",
       "--set-env-vars", "NODE_ENV=$_NODE_ENV_",
+      "--revision-suffix","sha-$SHORT_SHA",
+      "--port", "$_SERVER_PORT_",
+      "--command", "node",
+      "--args", "dist/src/main.js",
       "--async"
     ]
   waitFor: ['-']
