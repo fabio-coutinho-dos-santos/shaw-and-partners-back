@@ -98,7 +98,7 @@ steps:
       "--revision-suffix","sha-$SHORT_SHA",
       "--port", "$_SERVER_PORT_",
       "--command", "node",
-      "--args", "dist/src/main.js",
+      "--args", "dist/main.js",
       "--async"
     ]
   waitFor: ['push-image']
