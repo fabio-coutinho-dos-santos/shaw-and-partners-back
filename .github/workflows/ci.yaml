@@ -7,11 +7,13 @@ on:
     branches:
       - development
       - main
+      - master
       
   pull_request:
     branches:
       - development
       - main
+      - master
 
 jobs:
   check-applications:
@@ -35,4 +37,6 @@ jobs:
       
       - name: Test Code
         id: test
+        env:
+          NODE_ENV: test
         run: npm test
