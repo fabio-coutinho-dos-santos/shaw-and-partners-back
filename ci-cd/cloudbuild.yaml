@@ -101,7 +101,7 @@ steps:
       "--args", "dist/src/main.js",
       "--async"
     ]
-  waitFor: ['-']
+  waitFor: ['push-image']
 
 # Force the new revision to serve 100% of traffic.
 - id: "ensure service live"
